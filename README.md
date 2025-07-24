@@ -1,235 +1,72 @@
 ---
 layout: home
-title: Jekyll Gitbook Theme
+title: About me
 permalink: /
 ---
-
-Make Jelly site have a GitBook look!
-
-## Demo
-
-Live demo on Github Pages: [https://sighingnow.github.io/jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook)
-
-[![Jekyll Themes](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/jekyll-gitbook/)
-
-## Why Jekyll with GitBook
-
-GitBook is an amazing frontend style to present and organize contents (such as book chapters
-and blogs) on Web. The typical to deploy GitBook at [Github Pages][1]
-is building HTML files locally and then push to Github repository, usually to the `gh-pages`
-branch. It's quite annoying to repeat such workload and make it hard for people do version
-control via git for when there are generated HTML files to be staged in and out.
-
-This theme takes style definition out of generated GitBook site and provided the template
-for Jekyll to rendering markdown documents to HTML, thus the whole site can be deployed
-to [Github Pages][1] without generating and uploading HTML bundle every time when there are
-changes to the original repo.
-
-## How to Get Started
-
-This theme can be used just as other [Jekyll themes][1] and support [remote theme][12],
-see [the official guide][13] as well.
-
-You can introduce this jekyll theme into your own site by either
-
-- [Fork][3] this repository and add your markdown posts to the `_posts` folder.
-- Use as a remote theme in your [`_config.yml`][14](just like what we do for this
-  site itself),
-
-```yaml
-remote_theme: sighingnow/jekyll-gitbook
-```
-
-### Deploy Locally with Jekyll Serve
-
-This theme can be ran locally using Ruby and Gemfiles.
-
-[Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll) - GitHub
-
-## Full-text search
-
-The search functionality in jekyll-gitbook theme is powered by the [gitbook-plugin-search-pro][5] plugin and is enabled by default.
-
-[https://sighingnow.github.io/jekyll-gitbook/?q=generated](https://sighingnow.github.io/jekyll-gitbook/?q=generated)
-
-## Code highlight
-
-The code highlight style is configurable the following entry in `_config.yaml`:
-
-```yaml
-syntax_highlighter_style: colorful
-```
-
-The default code highlight style is `colorful`, the full supported styles can be found from [the rouge repository][6]. Customized
-style can be added to [./assets/gitbook/rouge/](./assets/gitbook/rouge/).
-
-## How to generate TOC
-
-The jekyll-gitbook theme leverages [jekyll-toc][4] to generate the *Contents* for the page.
-The TOC feature is not enabled by default. To use the TOC feature, modify the TOC
-configuration in `_config.yml`:
-
-```yaml
-toc:
-    enabled: true
-    h_min: 1
-    h_max: 3
-```
-
-## Google Analytics, etc.
-
-The jekyll-gitboook theme supports embedding the [Google Analytics][7], [CNZZ][8] and [Application Insights][9] website analytical tools with the following
-minimal configuration in `_config.yaml`:
-
-```yaml
-tracker:
-  google_analytics: "<YOUR GOOGLE ANALYTICS KEY, e.g, UA-xxxxxx-x>"
-```
-
-Similarly, CNZZ can be added with the following configuration in `_config.yaml`
-
-```yaml
-tracker:
-  cnzz: "<YOUR CNZZ ANALYTICS KEY, e.g., xxxxxxxx>"
-```
-
-Application Insights can be added with the following configuration in `_config.yaml`
-
-```yaml
-tracker:
-  application_insights: "<YOUR APPLICATION INSIGHTS CONNECTION STRING>"
-```
-
-## Disqus comments
-
-[Disqus](https://disqus.com/) comments can be enabled by adding the following configuration in `_config.yaml`:
-
-```yaml
-disqushandler: "<YOUR DISQUS SHORTNAME>"
-```
-
-## Jekyll collections
-
-Jekyll's [collections][15] is supported to organize the pages in a more fine-grained manner, e.g.,
-
-```yaml
-collections:
-  pages:
-    output: true
-    sort_by: date
-    permalink: /:collection/:year-:month-:day-:title:output_ext
-  others:
-    output: true
-    sort_by: date
-    permalink: /:collection/:year-:month-:day-:title:output_ext
-```
-
-An optional `ordered_collections` key can be added to `_config.yaml` to control the order of collections in the sidebar:
-
-```yaml
-ordered_collections:
-  - posts
-  - pages
-  - others
-```
-
-If not specified, the order of collections would be decided by Jekyll. Note that the key `posts` is a special collection
-that indicates the `_posts` pages of Jekyll.
-
-## Extra StyleSheet or Javascript elements
-
-You can add extra CSS or JavaScript references using configuration collections:
-
-- extra_css: for additional style sheets. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_header_js: for additional scripts to be included in the `<head>` tag, after the `extra_css` has been added. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_footer_js: for additional scripts to be included at the end of the HTML document, just before the site tracking script. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-
-## Customizing font settings
-
-The fonts can be customized by modifying the `.book.font-family-0` and `.book.font-family-1` entry in [`./assets/gitbook/custom.css`][10],
-
-```css
-.book.font-family-0 {
-    font-family: Georgia, serif;
-}
-.book.font-family-1 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-```
-
-## Tips, Warnings and Dangers blocks
-
-The jekyll-gitbook theme supports customized kramdown attributes (`{: .block-tip }`, `{: .block-warning }`,
-`{: .block-danger }`) like that displayed in [the discord.js website][11]. The marker can be used like
-
-```markdown
-> ##### TIP
->
-> This guide is last tested with @napi-rs/canvas^0.1.20, so make sure you have
-> this or a similar version after installation.
-{: .block-tip }
-```
-
-Rendered page can be previewed from
-
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html)
-
-## Cover image inside pages
-
-The jekyll-gitbook theme supports adding a cover image to a specific page by adding
-a `cover` field to the page metadata:
-
-```diff
-  ---
-  title: Page with cover image
-  author: Tao He
-  date: 2022-05-24
-  category: Jekyll
-  layout: post
-+ cover: /assets/jekyll-gitbook/dinosaur.gif
-  ---
-```
-
-The effect can be previewed from
-
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-05-24-page_cover.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-05-24-page_cover.html)
-
-## Diagrams with mermaid.js
-
-This jekyll-theme supports [mermaid.js](https://mermaid.js.org/) to render diagrams
-in markdown.
-
-To enable the mermaid support, you need to set `mermaid: true` in the front matter
-of your post.
-
-```markdown
+![img](assets/myprofile.jpg){: style="width:200px;","display: block; margin: 100;" }
 ---
-mermaid: true
+I am a blockchain service researcher and engineer with expertise in researching ERC standard protocols and applying them to company projects and real-world business applications, with a particular interest in the exploration and development of EVM-based services.
+
 ---
-```
+## 💻 Skills
 
-The example can be previewed from
+{% include skill-bar.html name="Solidity" level="90"%}
+{% include skill-bar.html name="Type Script" level="80"%}
+{% include skill-bar.html name="Python" level="60" %}
+{% include skill-bar.html name="AWS" level="60" %}
+{% include skill-bar.html name="Go" level="50"%}
+{% include skill-bar.html name="MongoDB" level="50" %}
+{% include skill-bar.html name="Mysql" level="40" %}
 
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2023-08-31-mermaid.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2023-08-31-mermaid.html)
+---
+## 👨‍💻 Experience
+<div style="border: 1px solid #444; padding: 20px; border-radius: 10px; background-color: #2d3748; color: white; margin-bottom: 20px;" markdown="1">
+🏢 온더 (2024.03 ~ 2025.02)
+- Layer2 메인넷 Closing 프로토콜 개발 
+- 스테이킹및 브릿지 서비스 보안 감사
+- UniswapV3 AWS Lambda 서비스 유지 보수
+</div>
 
-## License
+<div style="border: 1px solid #444; padding: 20px; border-radius: 10px; background-color: #2d3748; color: white; margin-bottom: 20px;" markdown="1">
+🏢 SCV-Software (2023.01 ~ 2023.02)
+- NFT 마켓 플레이스 개발 참여
+</div>
 
-This work is open sourced under the Apache License, Version 2.0.
+<div style="border: 1px solid #444; padding: 20px; border-radius: 10px; background-color: #2d3748; color: white; margin-bottom: 20px;" markdown="1">
+🏢 NIZTEL (2020.12 ~ 2022.02)
+- B2C IOS 어플리케이션 개발
+- B2C 서비스 QA 테스트 주도
+- B2C Payment 결제 시스템 개발
+- OCR 기반 자동화 전산 시스템 개발
+</div>
 
-Copyright 2019 Tao He.
+---
+## 🔥 Projects
 
-[1]: https://pages.github.com
-[2]: https://pages.github.com/themes
-[3]: https://github.com/sighingnow/jekyll-gitbook/fork
-[4]: https://github.com/allejo/jekyll-toc
-[5]: https://github.com/gitbook-plugins/gitbook-plugin-search-pro
-[6]: https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes
-[7]: https://analytics.google.com/analytics/web/
-[8]: https://www.cnzz.com/
-[9]: https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
-[10]: https://github.com/sighingnow/jekyll-gitbook/blob/master/gitbook/custom.css
-[11]: https://discordjs.guide/popular-topics/canvas.html#setting-up-napi-rs-canvas
-[12]: https://rubygems.org/gems/jekyll-remote-theme
-[13]: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
-[14]: https://github.com/sighingnow/jekyll-gitbook/blob/master/_config.yml
-[15]: https://jekyllrb.com/docs/collections/
+<div style="border: 1px solid #444; padding: 20px; border-radius: 10px; background-color: #2d3748; color: white; margin-bottom: 20px;" markdown="1">
+🚀 Fully On-chain DEX (2023.06 ~ 2024.08)
+- Permit 시스템 개발
+- EIP-2335 연구하여 최적화된 프록시 템플릿 개발
+- Solidity Assembly 최적화 
+- Gas optimization
+- 매칭 엔진및 Farm 자금 유동성 관련 시나리오 테스트, 코드 오딧, 단위 테스트 진행
+- GraphQL 핸들러및 API 구현
+- Batcher 스케쥴러 기능 개발
+- Crawler 속도 저하문제를 파악하여 필터링기능을 도입해 성능 개선
+</div>
+
+
+---
+## 🎓 Education
+
+Korea University (2023-2025.09)
+- Master's Degree of Blockchain
+
+BOOTCAMP (2022.10 - 2022.12)
+- Bithum Blokchain
+
+---
+## 🏆 Awards
+
+Intelligent Information Connect S-HERO | 2021
+- 우수상, 5,000,000 KRW 상금

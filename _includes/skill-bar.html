@@ -1,0 +1,25 @@
+{% assign level_num = include.level | plus: 0 %}
+{% if level_num >= 80 %}
+  {% assign skill_class = "skill-expert" %}
+  {% assign level_class = "expert" %}
+  {% assign level_text = "Expert" %}
+{% elsif level_num >= 50 %}
+  {% assign skill_class = "skill-intermediate" %}
+  {% assign level_class = "intermediate" %}
+  {% assign level_text = "Intermediate" %}
+{% else %}
+  {% assign skill_class = "skill-beginner" %}
+  {% assign level_class = "beginner" %}
+  {% assign level_text = "Beginner" %}
+{% endif %}
+
+<div class="skill-item {{ skill_class }}">
+  <div class="skill-name">
+    {{ include.name }}
+    <span class="skill-level {{ level_class }}">{{ level_text }}</span>
+  </div>
+  <div class="skill-bar">
+    <div class="skill-progress" style="width: {{ include.level }}%"></div>
+  </div>
+  <div class="skill-percentage">{{ include.level }}%</div>
+</div>

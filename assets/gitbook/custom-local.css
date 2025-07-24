@@ -1,5 +1,120 @@
-/* This file is kept intentionally blank inside the jekyll-github-theme
- * It gets imported at the end of custom.css
- * Its purpose is for users of the theme to be able to add css rules from a blank file
- *   these get simply added to the ones already active in the layout.
- */
+/* 박스형 스킬 스타일 - 미니 사이즈 */
+.skill-item {
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    border: 1px solid;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: transparent; /* 배경 투명 */
+  }
+  
+  .skill-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skill-name {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+  }
+  
+  .skill-description {
+    font-size: 0.75em;
+    margin-bottom: 8px;
+    opacity: 0.8;
+    line-height: 1.2;
+  }
+  
+  .skill-bar {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.8s ease-in-out;
+  }
+  
+  .skill-percentage {
+    text-align: right;
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+  
+  /* 레벨별 테두리와 진행바 색상 */
+  /* Expert (80-100%) - 초록색 */
+  .skill-expert {
+    border-color: #FFFF;
+    color: inherit; /* 기본 텍스트 색상 유지 */
+  }
+  
+  .skill-expert .skill-progress {
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  }
+  
+  .skill-expert .skill-percentage {
+    color: #4CAF50;
+  }
+  
+  /* Intermediate (50-79%) - 노란색 */
+  .skill-intermediate {
+    border-color: #FFFF;
+    color: inherit; /* 기본 텍스트 색상 유지 */
+  }
+  
+  .skill-intermediate .skill-progress {
+    background: linear-gradient(90deg, #FFC107, #FFD54F);
+  }
+  
+  .skill-intermediate .skill-percentage {
+    color: #FFC107;
+  }
+  
+  /* Beginner (0-49%) - 빨간색 */
+  .skill-beginner {
+    border-color: #FFFF;
+    color: inherit; /* 기본 텍스트 색상 유지 */
+  }
+  
+  .skill-beginner .skill-progress {
+    background: linear-gradient(90deg, #F44336, #EF5350);
+  }
+  
+  .skill-beginner .skill-percentage {
+    color: #F44336;
+  }
+  
+  /* 레벨 라벨 스타일 - 미니 */
+  .skill-level {
+    font-size: 0.6em;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+  }
+  
+  .skill-level.expert {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .skill-level.intermediate {
+    background-color: #FFC107;
+    color: #333;
+  }
+  
+  .skill-level.beginner {
+    background-color: #F44336;
+    color: white;
+  }
